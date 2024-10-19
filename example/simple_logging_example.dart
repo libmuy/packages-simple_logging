@@ -1,6 +1,7 @@
 import 'package:simple_logging/simple_logging.dart';
 
+final _log = Logger('TEST_PREFIX', level: LogLevel.debug);
+
 void main() {
-  var awesome = Awesome();
-  print('awesome: ${awesome.isAwesome}');
+  _log.debug('test debug log message');
 }

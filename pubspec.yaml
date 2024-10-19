@@ -1,7 +1,7 @@
 name: simple_logging
 description: simple logging package, with log level / level prefix / logging call position info features.
 version: 1.0.0
-# repository: https://github.com/my_org/my_repo
+repository: https://github.com/libmuy/packages-simple_logging.git
 license: MIT
 
 environment:
