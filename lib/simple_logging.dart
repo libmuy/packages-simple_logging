@@ -71,7 +71,7 @@ class Logger {
     return _FileInfo(filename, lineNumber, parentFilename, parentLineNumber);
   }
 
-  void _printLogByLevel(LogLevel outputLv, String msg, {bool parentInfo = false}) {
+  void _printLogByLevel(LogLevel outputLv, String msg, {bool callerInfo = false}) {
     int filterLv = level.level;
     String prefix = "";
     if (forceLevel.level != LogLevel.noForce.level) filterLv = forceLevel.level;
@@ -86,7 +86,7 @@ class Logger {
     } else {
       final fileInfo = _fileinfo();
       var fileInfoStr = "";
-      if (parentInfo) {
+      if (callerInfo) {
         if (fileInfo.parentName == fileInfo.name) {
           fileInfoStr = "${fileInfo.name}:${fileInfo.parentLineno} -> ${fileInfo.lineno}";
         } else {
@@ -114,12 +114,12 @@ class Logger {
   void verbose2(String msg) => _printLogByLevel(LogLevel.verbose2, msg);
   void verbose3(String msg) => _printLogByLevel(LogLevel.verbose3, msg);
 
-  void criticalWithParentInfo(String msg) => _printLogByLevel(LogLevel.critical, msg, parentInfo: true);
-  void errorWithParentInfo(String msg) => _printLogByLevel(LogLevel.error, msg, parentInfo: true);
-  void warningWithParentInfo(String msg) => _printLogByLevel(LogLevel.warning, msg, parentInfo: true);
-  void infoWithParentInfo(String msg) => _printLogByLevel(LogLevel.info, msg, parentInfo: true);
-  void debugWithParentInfo(String msg) => _printLogByLevel(LogLevel.debug, msg, parentInfo: true);
-  void verboseWithParentInfo(String msg) => _printLogByLevel(LogLevel.verbose, msg, parentInfo: true);
-  void verbose2WithParentInfo(String msg) => _printLogByLevel(LogLevel.verbose2, msg, parentInfo: true);
-  void verbose3WithParentInfo(String msg) => _printLogByLevel(LogLevel.verbose3, msg, parentInfo: true);
+  void criticalWithParentInfo(String msg) => _printLogByLevel(LogLevel.critical, msg, callerInfo: true);
+  void errorWithParentInfo(String msg) => _printLogByLevel(LogLevel.error, msg, callerInfo: true);
+  void warningWithParentInfo(String msg) => _printLogByLevel(LogLevel.warning, msg, callerInfo: true);
+  void infoWithParentInfo(String msg) => _printLogByLevel(LogLevel.info, msg, callerInfo: true);
+  void debugWithParentInfo(String msg) => _printLogByLevel(LogLevel.debug, msg, callerInfo: true);
+  void verboseWithParentInfo(String msg) => _printLogByLevel(LogLevel.verbose, msg, callerInfo: true);
+  void verbose2WithParentInfo(String msg) => _printLogByLevel(LogLevel.verbose2, msg, callerInfo: true);
+  void verbose3WithParentInfo(String msg) => _printLogByLevel(LogLevel.verbose3, msg, callerInfo: true);
 }
